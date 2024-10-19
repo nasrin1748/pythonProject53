@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Spring Bread</title>
+
+    <!-- Recommended meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+     <title>Random Move and Stop Div</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-image: url(
+'https://cdn.vectorstock.com/i/500p/34/54/witch-flying-over-haunted-castle-with-full-moon-vector-10143454.jpg');
+        }
+        img {
+            border: none;
+            padding: 5px;
+            width: 150px;
+            }
+        #movingDiv {
+            width: 0px;
+            height: 0px;
+            background-color:black;
+            position: absolute;
+        }
+    </style>
+
+    <!-- PyScript CSS -->
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.9.2/core.css">
+
+    <!-- This script tag bootstraps PyScript -->
+    <script type="module" src="https://pyscript.net/releases/2024.9.2/core.js"></script>
+</head>
+<body>
+    <H1 style="color: Orange;">HALLOWEEN GAME</H1>
+    <H4 style="color: Orange;">Click the pumpkin to win points</H4>
+    <h1 style="color: Orange;">POINTS</h1>
+    <p style="color: Orange;" id="item">1</p>
+    <button id="movingDiv">
+        <img src="pump.png">
+    </button>
+    <audio id="audio" src="https://interactive-examples.mdn.mozilla.net/media/cc0-audio/t-rex-roar.mp3"></audio>
+
+    <!--<button id="movingDiv"></button>-->
+
+<script type="py"  config="./pyscript.toml">
+from pyscript import when,document
+from pyscript import display
+@when("click", "#movingDiv")
+def fun(event):
+    q = document.querySelector("#item")
+    q.innerText = (int(q.innerText)) + 1
+    play()
+def play():
+    audio = document.getElementById("audio")
+    audio.play()
+</script>
+    <script src=./main.js>
+    </script>
+</body>
+</html>
